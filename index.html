@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Advanced Task Manager Dashboard</title>
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+        <!-- Edit Task Modal -->
+    <div id="editModal" class="edit-modal">
+
+        <div class="edit-box">
+
+            <h2>Edit Task</h2>
+
+            <label>Task Title</label>
+            <input type="text" id="editTitle" placeholder="Enter task title">
+
+            <label>Description</label>
+            <textarea
+            id="editDescription"
+            placeholder="Enter task description">
+            </textarea>
+
+            <label>Priority</label>
+            <select id="editPriority">
+            <option>Low</option>
+            <option>Medium</option>
+            <option>High</option>
+            </select>
+
+            <label>Due Date</label>
+            <input type="date" id="editDate">
+
+            <button onclick="updateTask()">Update Task</button>
+
+        </div>
+
+    </div>
+    <body>
+
+        <div class="container">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <h2>Task Manager</h2>
+                <hr>
+                <button onclick="sortByPriority()">Sort by Priority</button>
+                </hr>
+                <button class="toggle-mode-btn" onclick="toggleDarkMode()">🌙 Toggle Mode</button>
+            </div>
+
+            <!-- Main Content -->
+            <div class="main">
+
+                <div class="header">
+
+                    <!-- Row 1 -->
+                    <div class="header-row">
+
+                        <div class="input-group title-box">
+                            <label>Task Title</label>
+                            <input type="text" id="title" placeholder="Enter task title" />
+                        </div>
+
+                        <div class="input-group description-box">
+                            <label>Description</label>
+                            <textarea
+                                id="description"
+                                placeholder="Write task details..."
+                                rows="1"
+                                onfocus="expandDescription()"
+                                oninput="autoResize(this)">
+                            </textarea>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Row 2 -->
+                    <div class="header-row">
+
+                        <div class="input-group">
+                            <label>Priority</label>
+                            <select id="priority">
+                                <option>Low</option>
+                                <option>Medium</option>
+                                <option>High</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Due Date</label>
+                            <input type="date" id="date" />
+                        </div>
+
+                        <div class="input-group add-btn">
+                            <label>&nbsp;</label>
+                            <button onclick="addTask()">Add Task</button>
+                        </div>
+
+                        <div class="input-group search-box">
+                            <input
+                                type="text"
+                                id="search"
+                                placeholder="Search tasks..."
+                                onkeyup="renderTasks()"
+                            />
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="progress-container">
+                    <div id="progressBar"></div>
+                </div>
+
+                <!-- Task List -->
+                <div class="task-grid" id="taskList"></div>
+
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+
+    </body>
+</html>

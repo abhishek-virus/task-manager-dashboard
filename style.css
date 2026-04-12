@@ -1,0 +1,364 @@
+/* ======================================================
+   GLOBAL STYLES
+====================================================== */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f4f6f9;
+  transition: 0.3s;
+}
+
+.dark {
+  background: #121212;
+  color: white;
+}
+
+
+/* ======================================================
+   LAYOUT STRUCTURE
+====================================================== */
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1;
+  padding: 25px;
+}
+
+
+/* ======================================================
+   SIDEBAR
+====================================================== */
+
+.sidebar {
+  width: 230px;
+  background: white;
+  padding: 20px;
+  box-shadow: 2px 0px 8px rgba(0,0,0,0.1);
+}
+
+.dark .sidebar {
+  background: #1e1e1e;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+}
+
+.sidebar button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+
+  border: none;
+  border-radius: 6px;
+
+  background: #dbeafe;
+  color: #1e3a8a;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.sidebar button:hover {
+  background: #ddd;
+}
+
+
+/* ======================================================
+   HEADER INPUT SECTION
+====================================================== */
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.header-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: flex-end;
+}
+
+.title-box {
+  min-width: 220px;
+}
+
+.description-box {
+  flex: 1;
+  min-width: 300px;
+}
+
+.search-box {
+  min-width: 220px;
+}
+
+.add-btn button {
+  height: 38px;
+}
+
+
+/* ======================================================
+   FORM INPUT ELEMENTS
+====================================================== */
+
+.input-group input,
+.input-group select {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+
+  height: 38px;
+  box-sizing: border-box;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.input-group label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #444;
+}
+
+.input-group input {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.input-group textarea {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+
+  height: 38px;
+  min-height: 38px;
+
+  resize: none;
+  overflow: hidden;
+
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.4;
+
+  text-indent: 0;          /* removes extra left shift */
+  white-space: pre-wrap;   /* keeps line alignment correct */
+
+  box-sizing: border-box;
+
+  transition: height 0.3s ease;
+}
+
+
+/* ======================================================
+   BUTTONS
+====================================================== */
+
+button {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+
+  background: #4CAF50;
+  color: white;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #45a049;
+}
+
+.edit {
+  background: orange;
+  margin-right: 6px;
+  margin-top: 6px;
+}
+
+.edit:hover {
+  background: darkorange;
+}
+
+.delete {
+  background: red;
+  margin-top: 6px;
+}
+
+.delete:hover {
+  background: darkred;
+}
+
+
+/* ======================================================
+   PROGRESS BAR
+====================================================== */
+
+.progress-container {
+  height: 10px;
+  background: #ddd;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+#progressBar {
+  height: 10px;
+  width: 0%;
+
+  background: #4CAF50;
+  border-radius: 6px;
+
+  transition: 0.3s;
+}
+
+
+/* ======================================================
+   TASK GRID & CARDS
+====================================================== */
+
+.task-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 15px;
+}
+
+.card {
+  background: white;
+  padding: 15px;
+
+  border-radius: 10px;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+
+  cursor: grab;
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+.dark .card {
+  background: #2c2c2c;
+}
+
+
+/* ======================================================
+   TASK STATUS COLORS
+====================================================== */
+
+.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.high {
+  color: red;
+}
+
+.medium {
+  color: orange;
+}
+
+.low {
+  color: green;
+}
+
+
+/* ======================================================
+   DARK MODE INPUT SUPPORT
+====================================================== */
+
+.dark .input-group label {
+  color: #ddd;
+}
+
+.dark .input-group input,
+.dark .input-group textarea {
+  background: #2c2c2c;
+  color: white;
+  border: 1px solid #555;
+}
+
+
+/* ======================================================
+   RESPONSIVE DESIGN
+====================================================== */
+
+@media (max-width: 768px) {
+
+  .sidebar {
+    display: none;
+  }
+
+  .main {
+    padding: 15px;
+  }
+
+}
+
+/* EDIT MODAL BACKGROUND */
+
+.edit-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0,0,0,0.4);
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1000;
+}
+
+
+/* EDIT MODAL BOX */
+
+.edit-box {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+
+  width: 400px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  box-shadow: 0px 8px 25px rgba(0,0,0,0.2);
+}
+
+
+/* DARK MODE SUPPORT */
+
+.dark .edit-box {
+  background: #2c2c2c;
+  color: white;
+}
+
+.dark .edit-box input,
+.dark .edit-box textarea,
+.dark .edit-box select {
+  background: #1e1e1e;
+  color: white;
+  border: 1px solid #555;
+}
+
+.task-desc {
+  white-space: pre-line;
+}

@@ -1,3 +1,5 @@
+GitHub- https://github.com/abhishek
+
 # Advanced Task Manager Dashboard 🚀
 
 A modern and interactive Task Manager Dashboard built using HTML, CSS, and JavaScript. This project was created to make task 
@@ -103,10 +105,3 @@ Working on this project helped me improve my understanding of:
 - UI design practices
 
 ---
-
-
-GitHub: https://github.com/your-github-username
-
----
-
-If you found this project useful, consider giving it a ⭐
